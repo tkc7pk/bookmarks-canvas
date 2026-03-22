@@ -42,7 +42,7 @@ const content: Record<Language, LandingContent> = {
     },
     cta: {
       title: "ブックマークを整理する準備はできましたか？",
-      subtitle: "Replitアカウントでログインして、あなた専用のランチャーを作成しましょう。",
+      subtitle: "アカウントでログインして、あなた専用のランチャーを作成しましょう。",
       button: "今すぐログイン"
     }
   },
@@ -66,7 +66,7 @@ const content: Record<Language, LandingContent> = {
     },
     cta: {
       title: "Ready to organize your bookmarks?",
-      subtitle: "Sign in with your Replit account to start creating your personal launcher.",
+      subtitle: "Sign in to start creating your personal launcher.",
       button: "Sign In Now"
     }
   }
@@ -119,13 +119,14 @@ export default function Landing() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <Button 
-              size="lg" 
-              className="text-lg px-8 py-4"
-              onClick={() => window.location.href = "/api/login"}
-            >
-              {currentContent.signInButton}
-            </Button>
+            <Link href="/auth">
+              <Button
+                size="lg"
+                className="text-lg px-8 py-4"
+              >
+                {currentContent.signInButton}
+              </Button>
+            </Link>
             <Link href="/guide">
               <Button 
                 variant="secondary"
@@ -171,14 +172,15 @@ export default function Landing() {
           <p className="text-gray-600 mb-6">
             {currentContent.cta.subtitle}
           </p>
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="text-lg px-8 py-4"
-            onClick={() => window.location.href = "/api/login"}
-          >
-            {currentContent.cta.button}
-          </Button>
+          <Link href="/auth">
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 py-4"
+            >
+              {currentContent.cta.button}
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
